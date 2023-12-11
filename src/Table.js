@@ -11,31 +11,27 @@ const TableHeader = () => {
   );
 };
 
-const TableBody = () => {
-  return (
-    <tbody>
-      <tr>
-        <td>Chipolata</td>
-        <td>Classique</td>
+const TableBody = props => {
+  const rows = props.tableContent.map((row, index) => {
+    return (
+      <tr key={index}>
+        <td>{row.name}</td>
+        <td>{row.type}</td>
       </tr>
-      <tr>
-        <td>Merguez</td>
-        <td>Kipik</td>
-      </tr>
-      <tr>
-        <td>Knacki</td>
-        <td>À chier</td>
-      </tr>
-    </tbody>
-  );
+    );
+  });
+
+  return <tbody>{rows}</tbody>;
 };
 
 class Table extends Component {
   render() {
+    const { tableContent } = this.props;
+
     return (
       <table>
         <TableHeader />
-        <TableBody />
+        <TableBody tableContent={tableContent} />
       </table>
     );
   }
