@@ -5,8 +5,10 @@ class Pokeapi extends Component {
     data: []
   };
 
-  // Code is invoked after the component is mounted/inserted into the DOM tree.
+  // Code is called after the component is mounted/inserted into the DOM.
   componentDidMount() {
+    // Change the end of the link to get different data
+    // Some API may request a token, check their documentation !
     let url = "https://pokeapi.co/api/v2/pokemon/ditto";
 
     fetch(url)
