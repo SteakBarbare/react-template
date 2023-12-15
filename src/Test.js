@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Table from "./Table";
 import Form from "./Form";
+import Pokeapi from "./Pokeapi";
 
 class Test extends Component {
   state = {
@@ -42,6 +43,7 @@ class Test extends Component {
         <h1>Saucisse</h1>
         <Table tableContent={dataToPass} removeRow={this.removeRow} />
         <Form handleSubmit={this.handleSubmit} />
+        <Pokeapi />
       </div>
     );
   }
