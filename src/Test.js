@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Table from "./Table";
+import Form from "./Form";
 
 class Test extends Component {
   state = {
@@ -28,6 +29,11 @@ class Test extends Component {
       })
     });
   };
+
+  handleSubmit = currentRow => {
+    this.setState({ dataToPass: [...this.state.dataToPass, currentRow] });
+  };
+
   render() {
     const { dataToPass } = this.state;
 
@@ -35,6 +41,7 @@ class Test extends Component {
       <div className="Test">
         <h1>Saucisse</h1>
         <Table tableContent={dataToPass} removeRow={this.removeRow} />
+        <Form handleSubmit={this.handleSubmit} />
       </div>
     );
   }
